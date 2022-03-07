@@ -10,7 +10,7 @@ import { UPDATE_PRODUCTS } from "../../utils/actions";
 
 import { idbPromise } from "../../utils/helpers";
 
-function ProductList({}) {
+function ProductList() {
   const [state, dispatch] = useStoreContext();
   const { currentCategory } = state;
   const { loading, data } = useQuery(QUERY_PRODUCTS);
@@ -30,17 +30,15 @@ function ProductList({}) {
         idbPromise("products", "put", product);
       });
       // add else if to check if 'loading' is undefined in 'useQuery()' hook
-    
     } else if (!loading) {
       // since we are offline, get all of the data from the 'products' store
-      idbPromise('products', 'get').then((products)=> {
+      idbPromise("products", "get").then((products) => {
         // use retrieved data to set global state for offline browsing
         dispatch({
           type: UPDATE_PRODUCTS,
-          products: products
+          products: products,
         });
       });
-
     }
   }, [data, loading, dispatch]);
 

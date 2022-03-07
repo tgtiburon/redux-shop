@@ -8,7 +8,7 @@ import {
   UPDATE_CURRENT_CATEGORY,
 } from "../../utils/actions";
 
-function CategoryMenu({}) {
+function CategoryMenu() {
   //const { data: categoryData } = useQuery(QUERY_CATEGORIES);
   //const categories = categoryData?.categories || [];
 
@@ -35,16 +35,15 @@ function CategoryMenu({}) {
       });
       // Offline
     } else if (!loading) {
-
-      idbPromise('categories', 'get').then(categories => {
-        dispatch({ 
-          type:UPDATE_CATEGORIES,
-          categories: categories
+      idbPromise("categories", "get").then((categories) => {
+        dispatch({
+          type: UPDATE_CATEGORIES,
+          categories: categories,
         });
       });
     }
     // watches catagoryData and dispatch
-  }, [categoryData, dispatch]);
+  }, [categoryData, loading, dispatch]);
 
   const handleClick = (id) => {
     dispatch({
