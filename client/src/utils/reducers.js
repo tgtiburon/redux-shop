@@ -1,3 +1,4 @@
+//import { reducer } from "../../../../../../Downloads/22.4/client/src/utils/reducers";
 import {
   UPDATE_PRODUCTS,
   UPDATE_CATEGORIES,
@@ -10,11 +11,22 @@ import {
   TOGGLE_CART,
 } from "./actions";
 
-import { useReducer } from "react";
+//import { useReducer } from "react";
+
+// Moved from GlobalState.js
+const initialState = {
+  products: [],
+  cart: [],
+  cartOpen: false,
+  categories: [],
+  currentCategory: "",
+};
 
 // pass the state and the action.type
-//
-export const reducer = (state, action) => {
+// top is using reacts global state
+//export const reducer = (state, action) => {
+// below is using redux
+const reducer = (state = initialState, action) => {
   switch (action.type) {
     // if action type value is the value of 'UPDATE_PRODUCTS', return a new \
     // state object with an updated products array
@@ -102,10 +114,12 @@ export const reducer = (state, action) => {
       return state;
   }
 };
-
+// TODO: Don't need
 // initialize our global state object and gives functionality
 // for updated that state using reducer function
-export function useProductReducer(initialState) {
-  // useReducer is a hook for managing big levels of state
-  return useReducer(reducer, initialState);
-}
+//export function useProductReducer(initialState) {
+// useReducer is a hook for managing big levels of state
+// return useReducer(reducer, initialState);
+//}
+
+export default reducer;

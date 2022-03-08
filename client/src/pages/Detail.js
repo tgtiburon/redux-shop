@@ -6,7 +6,9 @@ import { QUERY_PRODUCTS } from "../utils/queries";
 import spinner from "../assets/spinner.gif";
 import { idbPromise } from "../utils/helpers";
 
-import { useStoreContext } from "../utils/GlobalState";
+//import { useStoreContext } from "../utils/GlobalState";
+// USE REDUX
+import { useSelector, useDispatch } from "react-redux";
 import {
   REMOVE_FROM_CART,
   UPDATE_CART_QUANTITY,
@@ -17,7 +19,13 @@ import {
 import Cart from "../components/Cart";
 
 function Detail() {
-  const [state, dispatch] = useStoreContext();
+  // TODO: Remove built in react global
+  // const [state, dispatch] = useStoreContext();
+  //  TODO: USE REDUX
+  const state = useSelector((state) => state);
+  const dispatch = useDispatch();
+
+
   const { id } = useParams();
 
   const [currentProduct, setCurrentProduct] = useState({});
@@ -39,8 +47,9 @@ function Detail() {
       });
       // if we're updating quantity, use existing item data and increment purchaseQuantity value
       // by one
-      idbPromise('cart', 'put', {
-        ...itemInCart, purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
+      idbPromise("cart", "put", {
+        ...itemInCart,
+        purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
       });
     } else {
       dispatch({
@@ -48,7 +57,7 @@ function Detail() {
         product: { ...currentProduct, purchaseQuantity: 1 },
       });
       // if the product isn't in the cart yet, add it to the cart
-      idbPromise('cart', 'put', { ...currentProduct, purchaseQuantity: 1}) ;
+      idbPromise("cart", "put", { ...currentProduct, purchaseQuantity: 1 });
     }
   };
 
@@ -58,7 +67,7 @@ function Detail() {
       _id: currentProduct._id,
     });
     // upon removal from cart, delete the item from IndexedDB
-    idbPromise('cart', 'delete', { ...currentProduct });
+    idbPromise("cart", "delete", { ...currentProduct });
   };
 
   // checks for data in the products array

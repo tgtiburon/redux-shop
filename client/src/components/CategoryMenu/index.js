@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { QUERY_CATEGORIES } from "../../utils/queries";
-import { useStoreContext } from "../../utils/GlobalState";
+//import { useStoreContext } from "../../utils/GlobalState";
+// Use REDUX
+import { useSelector, useDispatch } from "react-redux";
 import { idbPromise } from "../../utils/helpers";
 import {
   UPDATE_CATEGORIES,
@@ -13,7 +15,11 @@ function CategoryMenu() {
   //const categories = categoryData?.categories || [];
 
   // useStoreContext hook to get state and dispatch
-  const [state, dispatch] = useStoreContext();
+  //const [state, dispatch] = useStoreContext();
+
+  // USE REDUX
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state);
   // We only need categories array from state so destructure it from state
   const { categories } = state;
   // loading is so we can use IndexedDB
