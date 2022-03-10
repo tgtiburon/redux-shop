@@ -60,6 +60,8 @@ This app is an e-commerce app that has both online and offline functionality.  I
   ## Usage
 
       1. npm start at the prompt 
+      2. Click the link below to see the deployed app.
+   [Heroku Deployed App ](https://tgtiburon-redux-shop.herokuapp.com/)
 
 
   ---
