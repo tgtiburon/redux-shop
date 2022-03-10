@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import CartItem from "../CartItem";
 import Auth from "../../utils/auth";
+// remove react's global store
 //import { useStoreContext } from "../../utils/GlobalState";
 // USE REDUX
 import { useSelector, useDispatch } from "react-redux";

@@ -1,4 +1,7 @@
 // REDUX version of the global store
+// Might move this file to utils folder later
+// Redux docs showed it in an app folder
+
 
 // We only need the createStore function from redux
 import { createStore } from "redux";

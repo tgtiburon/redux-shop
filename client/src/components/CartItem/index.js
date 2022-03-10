@@ -1,5 +1,6 @@
 import React from "react";
 import { UPDATE_CART_QUANTITY, REMOVE_FROM_CART } from "../../utils/actions";
+// remove react's global store
 //import { useStoreContext } from "../../utils/GlobalState";
 // TODO: REDUX
 import { useDispatch } from "react-redux";

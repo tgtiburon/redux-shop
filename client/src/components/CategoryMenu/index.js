@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { QUERY_CATEGORIES } from "../../utils/queries";
+// remove react's global store
 //import { useStoreContext } from "../../utils/GlobalState";
 // Use REDUX
 import { useSelector, useDispatch } from "react-redux";
