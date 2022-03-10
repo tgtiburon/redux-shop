@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { pluralize } from "../../utils/helpers";
+// removed react's globalstate
 //import { useStoreContext } from "../../utils/GlobalState";
-// Use REDUX
+// Use REDUX's state
 import { useSelector, useDispatch } from 'react-redux'; 
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 //import CartItem from "../CartItem";
@@ -10,9 +11,10 @@ import { idbPromise } from "../../utils/helpers";
 
 function ProductItem(item) {
   const { image, name, _id, price, quantity } = item;
-// From react global
+// removed  react global
  // const [state, dispatch] = useStoreContext();
- // TODO: REDUX
+
+ // TODO: added redux's global functions
  const state = useSelector(state => state);
  const dispatch = useDispatch();
 

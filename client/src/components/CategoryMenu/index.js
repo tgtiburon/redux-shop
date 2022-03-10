@@ -14,12 +14,16 @@ function CategoryMenu() {
   //const { data: categoryData } = useQuery(QUERY_CATEGORIES);
   //const categories = categoryData?.categories || [];
 
+  // remove react's global state code
   // useStoreContext hook to get state and dispatch
   //const [state, dispatch] = useStoreContext();
 
-  // USE REDUX
+  // ADDED Redux's usedispatch and useSelector
   const dispatch = useDispatch();
+  // pass the whole state
   const state = useSelector((state) => state);
+
+  
   // We only need categories array from state so destructure it from state
   const { categories } = state;
   // loading is so we can use IndexedDB

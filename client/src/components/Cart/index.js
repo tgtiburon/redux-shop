@@ -15,9 +15,10 @@ import "./style.css";
 const stripePromise = loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
 
 const Cart = () => {
+  // removed react state handling
   // const [state, dispatch] = useStoreContext();
 
-  // ADD REDUX
+  // ADDED  REDUX state management
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
 

@@ -10,10 +10,11 @@ import {
   CLEAR_CART,
   TOGGLE_CART,
 } from "./actions";
-
+// React's global state 
 //import { useReducer } from "react";
 
 // Moved from GlobalState.js
+// In order to use Redux 
 const initialState = {
   products: [],
   cart: [],
@@ -25,6 +26,7 @@ const initialState = {
 // pass the state and the action.type
 // top is using reacts global state
 //export const reducer = (state, action) => {
+  
 // below is using redux
 const reducer = (state = initialState, action) => {
   switch (action.type) {

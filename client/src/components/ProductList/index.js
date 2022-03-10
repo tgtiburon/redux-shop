@@ -4,18 +4,23 @@ import { useQuery } from "@apollo/client";
 import ProductItem from "../ProductItem";
 import { QUERY_PRODUCTS } from "../../utils/queries";
 import spinner from "../../assets/spinner.gif";
-
+// removed react's global state
 //import { useStoreContext } from "../../utils/GlobalState";
-// ADD REDUX
+// ADDED REDUX functions for global state
 import { useSelector, useDispatch } from "react-redux";
 import { UPDATE_PRODUCTS } from "../../utils/actions";
 
 import { idbPromise } from "../../utils/helpers";
 
 function ProductList() {
+  // remove reacts global
   // const [state, dispatch] = useStoreContext();
-  const state = useSelector((state) => state);
+
+  // Use redux's global store
+  const state = useSelector(state => state);
   const dispatch = useDispatch();
+
+  
   const { currentCategory } = state;
   const { loading, data } = useQuery(QUERY_PRODUCTS);
 

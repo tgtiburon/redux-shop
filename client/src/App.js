@@ -16,6 +16,8 @@ import Signup from "./pages/Signup";
 import Nav from "./components/Nav";
 // Remove reacts store and add Redux
 //import { StoreProvider } from "./utils/GlobalState";
+
+
 // TODO: Converted to REDUX by importing the next 2 lines
 import store from "./app/store";
 import { Provider } from "react-redux";
@@ -49,6 +51,7 @@ function App() {
         <div>
           {/* Using the ...props we passed to StoreProvider */}
           {/* <StoreProvider>  built in react way*/}
+         {/* Below is the Redux version of store */}
           <Provider store={store}>
             <Nav />
             <Switch>
